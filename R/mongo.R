@@ -172,6 +172,12 @@ mongo_object <- function(col, client, verbose, orig){
       mongo_stream_in(cur, handler = handler, pagesize = pagesize, verbose = verbose)
     }
 
+    command <- function(command = '{}', handler = NULL, pagesize = 1000){
+      check_col()
+      cur <- mongo_collection_command(col, command = command)
+      mongo_stream_in(cur, handler = handler, pagesize = pagesize, verbose = verbose)
+    }
+
     iterate <- function(query = '{}', fields = '{"_id":0}', sort = '{}', skip = 0, limit = 0) {
       check_col()
       cur <- mongo_collection_find(col, query = query, sort = sort, fields = fields, skip = skip, limit = limit)

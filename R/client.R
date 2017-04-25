@@ -69,9 +69,10 @@ mongo_collection_command_simple <- function(col, command = "{}", no_timeout = FA
 }
 
 #' @useDynLib mongolite R_mongo_collection_command
-mongo_collection_command <- function(col, command = "{}"){
+mongo_collection_command <- function(col, command = "{}", no_timeout = FALSE){
   #returns cursor
-  .Call(R_mongo_collection_command, col, bson_or_json(command))
+  stopifnot(is.logical(no_timeout))
+  .Call(R_mongo_collection_command, col, bson_or_json(command), no_timeout)
 }
 
 # Wrapper for mapReduce command
