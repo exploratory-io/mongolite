@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 MongoDB, Inc.
+ * Copyright 2018-present MongoDB, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,31 +14,6 @@
  * limitations under the License.
  */
 
-#ifndef MONGOC_GSSAPI_PRIVATE_H
-#define MONGOC_GSSAPI_PRIVATE_H
-
-#if !defined(MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
+#if !defined(MONGOC_INSIDE) && !defined(MONGOC_COMPILATION)
+#error "Only <mongoc/mongoc.h> can be included directly."
 #endif
-
-#include <bson.h>
-#include "mongoc-sasl-private.h"
-
-
-BSON_BEGIN_DECLS
-
-
-typedef struct _mongoc_gssapi_t mongoc_gssapi_t;
-
-
-struct _mongoc_gssapi_t {
-   mongoc_sasl_t credentials;
-   bool done;
-   int step;
-};
-
-
-BSON_END_DECLS
-
-
-#endif /* MONGOC_GSSAPI_PRIVATE_H */

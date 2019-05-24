@@ -19,7 +19,7 @@
 
 About the R package:
 
- - Vignette: [Getting started with MongoDB in R](https://cran.r-project.org/web/packages/mongolite/vignettes/intro.html)
+ - Book: [Mongolite User Manual](https://jeroen.github.io/mongolite/)
  - Presentation: [UseR 2015 slides](http://jeroen.github.io/mongo-slides)
 
 ## Hello World
@@ -28,8 +28,8 @@ About the R package:
 Example using a public test server
 
 ```r
-# Connect to mongolabs
-con <- mongo("mtcars", url = "mongodb://readwrite:test@ds043942.mongolab.com:43942/jeroen_test")
+# Connect to demo server
+con <- mongo("mtcars", url = "mongodb://readwrite:test@mongo.opencpu.org:43942/jeroen_test")
 
 # Wipe collection
 if(con$count() > 0) 

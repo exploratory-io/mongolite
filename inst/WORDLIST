@@ -1,7 +1,10 @@
 arXiv
 bson
 datetime
+filepath
 github
+gridfs
+GridFS
 int
 io
 jeroen
@@ -21,3 +24,4 @@ mongorestore
 Ooms
 PEM
 POSIXct
+writable

@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 MongoDB, Inc.
+ * Copyright 2018-present MongoDB, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef MONGOC_CLUSTER_GSSAPI_PRIVATE_H
-#define MONGOC_CLUSTER_GSSAPI_PRIVATE_H
-
-#if !defined(MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
+#if !defined(MONGOC_INSIDE) && !defined(MONGOC_COMPILATION) && \
+   !defined(BSON_COMPILATION) && !defined(BSON_INSIDE)
+#error "Only <mongoc/mongoc.h> or <bson/bson.h> can be included directly."
 #endif
 
-#include "mongoc-config.h"
-#include "mongoc-cluster-private.h"
-#include <bson.h>
-
-bool
-_mongoc_cluster_auth_node_gssapi (mongoc_cluster_t *cluster,
-                                  mongoc_stream_t *stream,
-                                  mongoc_server_description_t *sd,
-                                  bson_error_t *error);
-#endif /* MONGOC_CLUSTER_GSSAPI_PRIVATE_H */
